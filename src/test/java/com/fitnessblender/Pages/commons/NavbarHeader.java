@@ -3,8 +3,6 @@ package com.fitnessblender.Pages.commons;
 import com.codeborne.selenide.SelenideElement;
 import com.fitnessblender.Pages.BasePage;
 import lombok.Getter;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selenide.$;
 
 @Getter
@@ -16,6 +14,8 @@ public class NavbarHeader extends BasePage {
     private SelenideElement blog = $("li.blog > a[href='/blog'");
     private SelenideElement about = $("li.about > a[href='/page/about-fitness-blender'");
     private SelenideElement clothing = $("li.clothing > a[href='https://workoutcomplete.com/'");
+    private SelenideElement searchIcon = $("span[data-event='click']");
+    private SelenideElement cartIcon = $("a.menu-cart");
 
 
 }
