@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Condition.*;
 @Getter
 public class NavbarHeader extends BasePage {
 
+    private SelenideElement fitnessLogo = $("h1.brand > a");
     private SelenideElement workoutsAndPrograms = $("li.workouts > a[href='/workouts-programs']");
 
     //Workouts & Programs dropdown
