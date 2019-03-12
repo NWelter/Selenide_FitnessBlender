@@ -17,8 +17,8 @@ public class NavbarHeader extends BasePage {
     private SelenideElement blog = $("li.blog > a[href='/blog'");
     private SelenideElement about = $("li.about > a[href='/page/about-fitness-blender'");
     private SelenideElement clothing = $("li.clothing > a[href='https://workoutcomplete.com/'");
-    private SelenideElement cartIcon = $("a.menu-cart");
-    private SelenideElement cartNumberOfItems = $(".cart-number");
+    private SelenideElement shoppingCartIcon = $("a.menu-cart");
+    private SelenideElement numberOfItemsInCart = $(".cart-number");
 
     //Search box
     private SelenideElement searchIcon = $("span[data-event='click']");
@@ -32,6 +32,14 @@ public class NavbarHeader extends BasePage {
         searchField.setValue(keyWords);
         searchButton.click();
         return this;
+    }
+
+    public String getShownNumberOfItemsInCart(){
+        String items = numberOfItemsInCart
+                            .shouldBe(visible)
+                            .getText();
+        log.info(String.format("Number of items shown in shopping cart: %s", items));
+        return items;
     }
 
 

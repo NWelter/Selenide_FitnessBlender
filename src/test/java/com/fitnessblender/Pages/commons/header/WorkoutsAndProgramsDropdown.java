@@ -18,6 +18,23 @@ public class WorkoutsAndProgramsDropdown extends BasePage {
 
     private String url = "";
 
+    public String navigateToWorkoutVideosPage(){
+        workoutsAndPrograms.hover();
+        workoutVideos.click();
+        return url = getCurrentURL();
+    }
+
+    public String navigateToWorkoutProgramsPage(){
+        workoutsAndPrograms.hover();
+        workoutPrograms.click();
+        return url = getCurrentURL();
+    }
+
+    public String navigateToMealPlansPage(){
+        workoutsAndPrograms.hover();
+        mealPlans.click();
+        return url = getCurrentURL();
+    }
 
 
 }
