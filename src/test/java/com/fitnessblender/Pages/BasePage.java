@@ -10,9 +10,9 @@ public abstract class BasePage {
 
     protected final static String BASE_URL = "https://www.fitnessblender.com/";
 
-    public String getCurrentURL() {
+    public static String getCurrentURL() {
         String currentURL = WebDriverRunner.url();
-        log.debug("Current page URL: " + currentURL);
+        log.debug(String.format("Current page URL: %s" , currentURL));
         return currentURL;
     }
 }
