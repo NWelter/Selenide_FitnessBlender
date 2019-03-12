@@ -40,7 +40,7 @@ public class NavbarHeader extends BasePage {
     private SelenideElement searchButton = $("#searchForm button");
 
 
-    public void search(String keyWords) {
+    public NavbarHeader search(String keyWords) {
         searchIcon
                 .shouldBe(visible)
                 .click();
@@ -52,6 +52,8 @@ public class NavbarHeader extends BasePage {
         searchButton
                 .shouldBe(visible)
                 .click();
+
+        return this;
     }
 
 
