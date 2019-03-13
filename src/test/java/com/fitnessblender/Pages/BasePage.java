@@ -2,9 +2,9 @@ package com.fitnessblender.Pages;
 
 import com.codeborne.selenide.WebDriverRunner;
 import lombok.Getter;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
-@Log4j2(topic = "reporting")
+@Slf4j(topic = "reporting")
 @Getter
 public abstract class BasePage {
 

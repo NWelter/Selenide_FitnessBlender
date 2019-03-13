@@ -3,12 +3,12 @@ package com.fitnessblender.Pages.commons.header;
 import com.codeborne.selenide.SelenideElement;
 import com.fitnessblender.Pages.BasePage;
 import lombok.Getter;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Condition.*;
 
-@Log4j2(topic = "reporting")
+@Slf4j(topic = "reporting")
 @Getter
 public class NavbarHeader extends BasePage {
 
@@ -34,12 +34,13 @@ public class NavbarHeader extends BasePage {
         return this;
     }
 
-    public String getShownNumberOfItemsInCart(){
+    public Integer getShownNumberOfItemsInCart(){
         String items = numberOfItemsInCart
                             .shouldBe(visible)
                             .getText();
-        log.info(String.format("Number of items shown in shopping cart: %s", items));
-        return items;
+        Integer numberOfItems = Integer.valueOf(items);
+        log.info(String.format("Number of items shown in shopping cart: %d", numberOfItems));
+        return numberOfItems;
     }
 
 
