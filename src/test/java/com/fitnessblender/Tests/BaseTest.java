@@ -22,7 +22,7 @@ public class BaseTest {
     protected HealthyLivingDropdown healthyLivingDropdown = new HealthyLivingDropdown();
     protected NavbarHeader navbarHeader = new NavbarHeader();
     protected WorkoutsAndProgramsDropdown workoutsAndProgramsDropdown = new WorkoutsAndProgramsDropdown();
-    protected Login login = new Login();
+    protected Login loginPage = new Login();
     protected MyFitnessDropdown myFitnessDropdown = new MyFitnessDropdown();
 
     @BeforeEach

@@ -19,11 +19,6 @@ public class WorkoutsAndProgramsDropdown extends BasePage {
     private SelenideElement workoutsAndPrograms = $("li.workouts > a[href='/workouts-programs']");
     private ElementsCollection workoutsAndProgramsDropdown = $$("#workout-dropdown a");
 
-    private SelenideElement workoutVideos = $("a[href='/videos']");
-    private SelenideElement workoutPrograms = $("a[href='/plans']");
-    private SelenideElement mealPlans = $("a[href='/meal-plans']");
-
-
     public WorkoutsAndProgramsDropdown navigateTo(String subPageOption){
         workoutsAndPrograms.hover();
         log.debug(String.format("Navigate to \"%s\" page", subPageOption));
@@ -32,25 +27,5 @@ public class WorkoutsAndProgramsDropdown extends BasePage {
                 .click();
         return this;
     }
-//    private String url = "";
-//
-//    public String navigateToWorkoutVideosPage(){
-//        workoutsAndPrograms.hover();
-//        workoutVideos.click();
-//        return url = getCurrentURL();
-//    }
-//
-//    public String navigateToWorkoutProgramsPage(){
-//        workoutsAndPrograms.hover();
-//        workoutPrograms.click();
-//        return url = getCurrentURL();
-//    }
-//
-//    public String navigateToMealPlansPage(){
-//        workoutsAndPrograms.hover();
-//        mealPlans.click();
-//        return url = getCurrentURL();
-//    }
-
 
 }
