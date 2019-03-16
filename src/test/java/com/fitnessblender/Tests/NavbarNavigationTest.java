@@ -10,6 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j(topic = "reporting")
 public class NavbarNavigationTest extends BaseTest {
 
+
+    //DRAFT - only for checking navigation method work purpose
     @Test
     public void navigateToMealPlan(){
         workoutsAndProgramsDropdown.navigateTo("Meal Plans");
