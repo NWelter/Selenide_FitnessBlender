@@ -27,9 +27,7 @@ public class BaseTest {
 
     @BeforeEach
     public void openSession(){
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://www.fitnessblender.com/";
-        Configuration.startMaximized = true;
+        setup();
         log.info(String.format("------- Open browser session and go to: '%s' -------", baseUrl));
         open(baseUrl);
     }
@@ -38,6 +36,12 @@ public class BaseTest {
     public void closeSession(){
        log.info("------- Close browser session. -------");
         close();
+    }
+
+    private static void setup(){
+        Configuration.browser = "chrome";
+        Configuration.baseUrl = "https://www.fitnessblender.com/";
+        Configuration.startMaximized = true;
     }
 
 }

@@ -5,10 +5,9 @@ import com.codeborne.selenide.SelenideElement;
 import com.fitnessblender.Pages.BasePage;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-
+import org.openqa.selenium.support.Color;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.$;
-import static java.lang.Integer.toHexString;
 
 
 @Getter
@@ -16,6 +15,7 @@ import static java.lang.Integer.toHexString;
 public class Login extends BasePage {
 
     private String url = BASE_URL + "/login";
+    private String validBackgroundColor = "#ff505f";
 
     private SelenideElement usernameField = $("#username");
     private SelenideElement passwordField = $("#password");
@@ -37,16 +37,20 @@ public class Login extends BasePage {
         String messageAlert = loginAlert
                 .shouldBe(appear)
                 .text();
+        //solve problem with new line characters causes by multiple child objects
+        messageAlert = messageAlert.replaceAll("\\n", "").replaceAll("\\t", "");
         log.debug(String.format("Message alert '%s' is displayed", messageAlert));
         return messageAlert;
     }
 
     public String getMessageAlertBackgroundColor(){
-        String backgroundColor = loginAlert
+        Color backgroundColor = Color.fromString(
+                loginAlert
                 .shouldBe(appear)
-                .getCssValue("background-color");
-        log.debug(String.format("Background color of alert message is: %s", backgroundColor));
-        return backgroundColor;
+                .getCssValue("background-color"));
+        String color = backgroundColor.asHex();
+        log.debug(String.format("Background color of alert message is: %s", color));
+        return color;
     }
 
 }

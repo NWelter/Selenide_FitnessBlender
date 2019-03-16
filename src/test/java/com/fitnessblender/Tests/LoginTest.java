@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 @Slf4j(topic = "reporting")
 public class LoginTest extends BaseTest {
 
-    @ParameterizedTest(name = "When user set login \"{0}\" and password \"{1}\" then alert message \"{2}\" is displayed.")
+    @ParameterizedTest(name = "When user set login \"{0}\" and password \"{1}\" then red alert message tile \"{2}\" is displayed.")
     @CsvFileSource(resources = "/login_validation.csv", numLinesToSkip = 1)
-    public void whenUserSetInvalidCredentialsThenShouldNotLogin(String login, String password, String alertMessage) {
+    public void userWithInvalidCredentialsShouldNotBeLogged(String login, String password, String alertMessage) {
         myFitnessDropdown.goToSignIn();
 
-        assertAll("Login negative tests",
+        assertAll("Login options - negative test scenarios",
                 () -> assertThat(
                         getCurrentURL())
                         .as("Current page URL")
@@ -34,7 +34,8 @@ public class LoginTest extends BaseTest {
                         loginPage
                                 .getMessageAlertBackgroundColor())
                         .as("Alert message has red background color")
-                        .isEqualTo("rgba(255, 80, 95, 1)")
+                        .isEqualTo(loginPage.getValidBackgroundColor())
+
         );
 
     }
