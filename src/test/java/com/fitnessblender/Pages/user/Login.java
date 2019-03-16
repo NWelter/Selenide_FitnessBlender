@@ -37,7 +37,7 @@ public class Login extends BasePage {
         String messageAlert = loginAlert
                 .shouldBe(appear)
                 .text();
-        //solve problem with new line characters causes by multiple child objects
+        //solve problem with new line characters causes by get text from multiple child objects
         messageAlert = messageAlert.replaceAll("\\n", "").replaceAll("\\t", "");
         log.debug(String.format("Message alert '%s' is displayed", messageAlert));
         return messageAlert;
@@ -48,8 +48,11 @@ public class Login extends BasePage {
                 loginAlert
                 .shouldBe(appear)
                 .getCssValue("background-color"));
+        log.debug(String.format("Background color of alert message in rgba format is: %s", backgroundColor.toString()));
+
+        //change background color format from rgba to hex
         String color = backgroundColor.asHex();
-        log.debug(String.format("Background color of alert message is: %s", color));
+        log.debug(String.format("Background color of alert message in hex format is: %s", color));
         return color;
     }
 

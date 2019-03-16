@@ -9,7 +9,7 @@ import static com.fitnessblender.Pages.BasePage.getCurrentURL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-@Slf4j(topic = "reporting")
+
 public class LoginTest extends BaseTest {
 
     @ParameterizedTest(name = "When user set login \"{0}\" and password \"{1}\" then red alert message tile \"{2}\" is displayed.")
