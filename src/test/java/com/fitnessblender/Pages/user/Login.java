@@ -16,6 +16,8 @@ public class Login extends BasePage {
 
     private String url = BASE_URL + "/login";
     private String validBackgroundColor = "#ff505f";
+    private final String demoUserName = "GerwazyMoczymord";
+    private final String demoUserPassword = "gerwazy9999";
 
     private SelenideElement usernameField = $("#username");
     private SelenideElement passwordField = $("#password");
@@ -33,7 +35,12 @@ public class Login extends BasePage {
         return this;
     }
 
-    public String getMessageAlert(){
+    public UserDashboard loginDemoUser(){
+        loginUser(demoUserName, demoUserPassword);
+        return new UserDashboard();
+    }
+
+    public String getMessageAlert() {
         String messageAlert = loginAlert
                 .shouldBe(appear)
                 .text();
@@ -43,11 +50,11 @@ public class Login extends BasePage {
         return messageAlert;
     }
 
-    public String getMessageAlertBackgroundColor(){
+    public String getMessageAlertBackgroundColor() {
         Color backgroundColor = Color.fromString(
                 loginAlert
-                .shouldBe(appear)
-                .getCssValue("background-color"));
+                        .shouldBe(appear)
+                        .getCssValue("background-color"));
         log.debug(String.format("Background color of alert message in rgba format is: %s", backgroundColor.toString()));
 
         //change background color format from rgba to hex

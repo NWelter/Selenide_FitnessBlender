@@ -1,6 +1,7 @@
 package com.fitnessblender.Tests;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -38,5 +39,18 @@ public class LoginTest extends BaseTest {
 
         );
 
+    }
+
+    @Test
+    @DisplayName("When user set valid credentials then should be logged.")
+    public void userWithValidCredentialsShouldBeLogged() {
+        myFitnessDropdown.goToSignIn();
+        loginPage.loginDemoUser();
+
+        assertThat(
+                getCurrentURL()
+        )
+                .as("Current page URL")
+                .isEqualTo(userDashboard.getUrl());
     }
 }
