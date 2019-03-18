@@ -6,7 +6,7 @@ import com.fitnessblender.Pages.commons.header.NavbarHeader;
 import com.fitnessblender.Pages.commons.header.WorkoutsAndProgramsDropdown;
 import com.fitnessblender.Pages.user.LoginPage;
 import com.fitnessblender.Pages.user.MyFitnessDropdown;
-import com.fitnessblender.Pages.user.UserDashboard;
+import com.fitnessblender.Pages.user.UserDashboardPage;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.AfterEach;
@@ -25,7 +25,7 @@ public class BaseTest {
     protected WorkoutsAndProgramsDropdown workoutsAndProgramsDropdown = new WorkoutsAndProgramsDropdown();
     protected LoginPage loginPage = new LoginPage();
     protected MyFitnessDropdown myFitnessDropdown = new MyFitnessDropdown();
-    protected UserDashboard userDashboard = new UserDashboard();
+    protected UserDashboardPage userDashboardPage = new UserDashboardPage();
 
     @BeforeEach
     public void openSession(){

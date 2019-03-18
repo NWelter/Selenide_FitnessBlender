@@ -1,6 +1,5 @@
 package com.fitnessblender.Tests;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -48,9 +47,8 @@ public class LoginTest extends BaseTest {
         loginPage.loginDemoUser();
 
         assertThat(
-                getCurrentURL()
-        )
-                .as("Current page URL")
-                .isEqualTo(userDashboard.getUrl());
+                getCurrentURL())
+                    .as("Current page URL")
+                    .isEqualTo(userDashboardPage.USER_DASHBOARD_PAGE_URL);
     }
 }

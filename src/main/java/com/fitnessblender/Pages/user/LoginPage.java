@@ -34,9 +34,9 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public UserDashboard loginDemoUser(){
+    public UserDashboardPage loginDemoUser(){
         loginUser(DEMO_USER_NAME, DEMO_USER_PASSWORD);
-        return new UserDashboard();
+        return new UserDashboardPage();
     }
 
     public String getMessageAlert() {
