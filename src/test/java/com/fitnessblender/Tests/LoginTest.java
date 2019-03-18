@@ -17,11 +17,11 @@ public class LoginTest extends BaseTest {
     public void userWithInvalidCredentialsShouldNotBeLogged(String login, String password, String alertMessage) {
         myFitnessDropdown.goToSignIn();
 
-        assertAll("Login options - negative test scenarios",
+        assertAll("LoginPage options - negative test scenarios",
                 () -> assertThat(
                         getCurrentURL())
                         .as("Current page URL")
-                        .isEqualTo(loginPage.getUrl()),
+                        .isEqualTo(loginPage.LOGIN_PAGE_URL),
 
                 () -> assertThat(
                         loginPage
@@ -34,7 +34,7 @@ public class LoginTest extends BaseTest {
                         loginPage
                                 .getMessageAlertBackgroundColor())
                         .as("Alert message has red background color")
-                        .isEqualTo(loginPage.getValidBackgroundColor())
+                        .isEqualTo(loginPage.VALID_BACKGROUND_COLOR)
 
         );
 
