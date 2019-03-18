@@ -4,7 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.fitnessblender.Pages.commons.header.HealthyLivingDropdown;
 import com.fitnessblender.Pages.commons.header.NavbarHeader;
 import com.fitnessblender.Pages.commons.header.WorkoutsAndProgramsDropdown;
-import com.fitnessblender.Pages.user.Login;
+import com.fitnessblender.Pages.user.LoginPage;
 import com.fitnessblender.Pages.user.MyFitnessDropdown;
 import com.fitnessblender.Pages.user.UserDashboard;
 import lombok.Getter;
@@ -23,7 +23,7 @@ public class BaseTest {
     protected HealthyLivingDropdown healthyLivingDropdown = new HealthyLivingDropdown();
     protected NavbarHeader navbarHeader = new NavbarHeader();
     protected WorkoutsAndProgramsDropdown workoutsAndProgramsDropdown = new WorkoutsAndProgramsDropdown();
-    protected Login loginPage = new Login();
+    protected LoginPage loginPage = new LoginPage();
     protected MyFitnessDropdown myFitnessDropdown = new MyFitnessDropdown();
     protected UserDashboard userDashboard = new UserDashboard();
 

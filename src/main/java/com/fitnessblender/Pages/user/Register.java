@@ -24,7 +24,7 @@ public class Register extends BasePage {
     private SelenideElement confirmPasswordField = $("#password_confirmation");
 
     //TODO finish method
-    public Register fillRegisterForm(String firstName, String lastName, String email, String userName, String password, String confirmPassword){
+    public Register fillRegisterForm(String firstName, String lastName, String email, String userName, String password, String confirmPassword) {
         Map<SelenideElement, String> registerForm = new HashMap<>();
         registerForm.put(firstNameField, firstName);
         registerForm.put(lastNameField, lastName);
@@ -35,7 +35,8 @@ public class Register extends BasePage {
 
         registerForm.forEach(
                 (key, value) ->
-                {log.debug(String.format("Set value '%s' in '%s'", value, key.toString()));
+                {
+                    log.debug(String.format("Set value '%s' in '%s'", value, key.toString()));
                     key.setValue(value);
                 });
 
