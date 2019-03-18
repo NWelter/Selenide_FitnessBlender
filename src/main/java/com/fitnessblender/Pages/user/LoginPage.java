@@ -1,6 +1,5 @@
 package com.fitnessblender.Pages.user;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.fitnessblender.Pages.BasePage;
 import lombok.Getter;
@@ -12,24 +11,24 @@ import static com.codeborne.selenide.Selenide.$;
 
 @Getter
 @Slf4j(topic = "reporting")
-public class Login extends BasePage {
+public class LoginPage extends BasePage {
 
-    private String url = BASE_URL + "/login";
-    private String validBackgroundColor = "#ff505f";
+    public static final String LOGIN_PAGE_URL = BASE_URL + "/login";
+    public static final String VALID_BACKGROUND_COLOR = "#ff505f";
 
     private SelenideElement usernameField = $("#username");
     private SelenideElement passwordField = $("#password");
     private SelenideElement signInButton = $("#single_click_submit");
     private SelenideElement loginAlert = $("div.login-alert");
 
-    public Login loginUser(String username, String password) {
-        log.info("Login user start.");
+    public LoginPage loginUser(String username, String password) {
+        log.info("LoginPage user start.");
         log.debug(String.format("Set username: '%s'", username));
         usernameField.setValue(username);
         log.debug(String.format("Set password: '%s'", password));
         passwordField.setValue(password);
         signInButton.click();
-        log.info("Login user finished.");
+        log.info("LoginPage user finished.");
         return this;
     }
 
@@ -48,6 +47,7 @@ public class Login extends BasePage {
                 loginAlert
                 .shouldBe(appear)
                 .getCssValue("background-color"));
+
         log.debug(String.format("Background color of alert message in rgba format is: %s", backgroundColor.toString()));
 
         //change background color format from rgba to hex
