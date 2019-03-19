@@ -2,9 +2,7 @@ package com.fitnessblender.Pages.user;
 
 import com.codeborne.selenide.SelenideElement;
 import com.fitnessblender.Pages.BasePage;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +11,8 @@ import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.$;
 
+
 @Slf4j(topic = "reporting")
-@Data
 public class RegisterPage extends BasePage {
 
     public final static String REGISTER_PAGE_URL = BASE_URL + "/join";
@@ -40,7 +38,7 @@ public class RegisterPage extends BasePage {
         registerForm.forEach(
                 (key, value) ->
                 {
-                    log.debug(String.format("Set value '%s' in '%s'", value, key.toString()));
+                    log.debug(String.format("Set value '%s' in '%s'", value, key.attr("name")));
                     key.setValue(value);
                 });
 
@@ -62,7 +60,7 @@ public class RegisterPage extends BasePage {
                     }
                 });
 
-        String validationMessages = validationMessagesList.stream().collect(Collectors.joining("|"));
+        String validationMessages = validationMessagesList.stream().collect(Collectors.joining(("|")));
         log.debug(String.format("Current validation messages from register form: [%s]", validationMessages));
 
         return validationMessages;

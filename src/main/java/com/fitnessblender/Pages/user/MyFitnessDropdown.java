@@ -20,7 +20,7 @@ public class MyFitnessDropdown extends BasePage {
     private ElementsCollection loginUserDropdownOptions = $$("div.user-dropdown a");
     private SelenideElement myFitnessDropdownWelcomingHeadline = $("div.menu-id > span");
 
-    private SelenideElement joinButton = $("a[href'/join']");
+    private SelenideElement joinButton = $("a[href='/join']");
     private SelenideElement signInButton = $("a[href='/login']");
 
     public MyFitnessDropdown navigateTo(String loginUserTabOption) {
