@@ -38,7 +38,7 @@ public class RegisterPage extends BasePage {
         registerForm.forEach(
                 (key, value) ->
                 {
-                    log.debug(String.format("Set value '%s' in '%s'", value, key.attr("name")));
+                    log.info(String.format("Set value '%s' in '%s'", value, key.attr("name")));
                     key.setValue(value);
                 });
 
@@ -49,9 +49,9 @@ public class RegisterPage extends BasePage {
                                                    String userName, String password, String confirmPassword){
         //TODO finish method, add condition and logs
         List<String> validationMessagesList = new ArrayList<>();
-        Map<SelenideElement, String> filledRegisterForm = fillRegisterForm(firstName, lastName, email, userName,
+        Map<SelenideElement, String> completedRegisterForm = fillRegisterForm(firstName, lastName, email, userName,
                                                                             password, confirmPassword);
-        filledRegisterForm.forEach(
+        completedRegisterForm.forEach(
                 (key, value) ->
                 {
                     if(key.parent().$("span.message").isDisplayed()) {
