@@ -3,10 +3,8 @@ package com.fitnessblender.Pages.user;
 import com.codeborne.selenide.SelenideElement;
 import com.fitnessblender.Pages.BasePage;
 import lombok.extern.slf4j.Slf4j;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -27,7 +25,7 @@ public class RegisterPage extends BasePage {
     //TODO finish methods to fill and validation register form fields
     public Map<SelenideElement, String> fillRegisterForm(String firstName, String lastName, String email,
                                                          String userName, String password, String confirmPassword) {
-        Map<SelenideElement, String> registerForm = new HashMap<>();
+        Map<SelenideElement, String> registerForm = new LinkedHashMap<>();
             registerForm.put(firstNameField, firstName);
             registerForm.put(lastNameField, lastName);
             registerForm.put(emailField, email);

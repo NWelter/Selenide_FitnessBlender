@@ -6,6 +6,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static com.fitnessblender.Pages.BasePage.getCurrentURL;
+import static com.fitnessblender.Pages.user.LoginPage.LOGIN_PAGE_URL;
+import static com.fitnessblender.Pages.user.LoginPage.VALID_BACKGROUND_COLOR;
+import static com.fitnessblender.Pages.user.UserDashboardPage.USER_DASHBOARD_PAGE_URL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
@@ -21,7 +24,7 @@ public class LoginTest extends BaseTest {
                 () -> assertThat(
                         getCurrentURL())
                         .as("Current page URL")
-                        .isEqualTo(loginPage.LOGIN_PAGE_URL),
+                        .isEqualTo(LOGIN_PAGE_URL),
 
                 () -> assertThat(
                         loginPage
@@ -34,7 +37,7 @@ public class LoginTest extends BaseTest {
                         loginPage
                                 .getMessageAlertBackgroundColor())
                         .as("Alert message has red background color")
-                        .isEqualTo(loginPage.VALID_BACKGROUND_COLOR)
+                        .isEqualTo(VALID_BACKGROUND_COLOR)
 
         );
 
@@ -49,6 +52,6 @@ public class LoginTest extends BaseTest {
         assertThat(
                 getCurrentURL())
                     .as("Current page URL")
-                    .isEqualTo(userDashboardPage.USER_DASHBOARD_PAGE_URL);
+                    .isEqualTo(USER_DASHBOARD_PAGE_URL);
     }
 }

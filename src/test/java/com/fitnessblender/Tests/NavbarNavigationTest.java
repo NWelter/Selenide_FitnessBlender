@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static com.fitnessblender.Pages.BasePage.getCurrentURL;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Slf4j(topic = "reporting")
+
 public class NavbarNavigationTest extends BaseTest {
 
 
