@@ -8,7 +8,7 @@ import static com.fitnessblender.Pages.user.RegisterPage.REGISTER_PAGE_URL;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-//TODO complete resource csv file with possible negative cases
+
 public class RegisterTest extends BaseTest {
 
     @ParameterizedTest(name = "When user set first name:  \"{0}\", " +
@@ -32,7 +32,7 @@ public class RegisterTest extends BaseTest {
                 ()-> assertThat(
                         registerPage.getRegisterFormValidationMessage
                                 (firstName, lastName, email, username, password, confirmPassword))
-                            .as("Warning message from form fields validator")
+                            .as("Proper warning message under input fields filled with invalid data is displayed")
                             .isEqualTo(validatorMessage)
                 );
 

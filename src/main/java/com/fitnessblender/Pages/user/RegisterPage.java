@@ -21,6 +21,7 @@ public class RegisterPage extends BasePage {
     private SelenideElement userNameField = $("#username");
     private SelenideElement passwordField = $("#password");
     private SelenideElement confirmPasswordField = $("#password_confirmation");
+    private SelenideElement joinButton = $("#submitButton");
 
     //TODO finish methods to fill and validation register form fields
     //TODO create method to get color of validation message
@@ -40,6 +41,8 @@ public class RegisterPage extends BasePage {
                     log.info(String.format("Set value '%s' in '%s'", value, key.attr("name")));
                     key.setValue(value);
                 });
+
+        joinButton.click();
 
         return registerForm;
     }
