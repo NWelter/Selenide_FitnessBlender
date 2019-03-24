@@ -23,6 +23,7 @@ public class RegisterPage extends BasePage {
     private SelenideElement confirmPasswordField = $("#password_confirmation");
 
     //TODO finish methods to fill and validation register form fields
+    //TODO create method to get color of validation message
     public Map<SelenideElement, String> fillRegisterForm(String firstName, String lastName, String email,
                                                          String userName, String password, String confirmPassword) {
         Map<SelenideElement, String> registerForm = new LinkedHashMap<>();
@@ -45,7 +46,7 @@ public class RegisterPage extends BasePage {
 
     public String getRegisterFormValidationMessage(String firstName, String lastName, String email,
                                                    String userName, String password, String confirmPassword){
-        //TODO finish method, add condition and logs
+
         List<String> validationMessagesList = new ArrayList<>();
         Map<SelenideElement, String> completedRegisterForm = fillRegisterForm(firstName, lastName, email, userName,
                                                                             password, confirmPassword);
@@ -58,7 +59,7 @@ public class RegisterPage extends BasePage {
                     }
                 });
 
-        String validationMessages = validationMessagesList.stream().collect(Collectors.joining(("|")));
+        String validationMessages = validationMessagesList.stream().collect(Collectors.joining((" | ")));
         log.debug(String.format("Current validation messages from register form: [%s]", validationMessages));
 
         return validationMessages;

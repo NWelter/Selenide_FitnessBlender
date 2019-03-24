@@ -1,3 +1,11 @@
-FIRST NAME, LAST NAME, E-MAIL ADDRESS, USERNAME, PASSWORD, CONFIRM PASSWORD
- " ", " " , " " , " " , " " , " ", First Name is required|Last Name is required|Email is required|Username is required|Password is required
-Pacyfika, Gżegżółka, j@skolka, " "  ,  " " , " ", Must be a valid email|Username is required|Password is required
+FIRST NAME, LAST NAME, E-MAIL ADDRESS, USERNAME, PASSWORD, CONFIRM PASSWORD, MESSAGE
+ " ", " " , " " , " " , " " , " ", First Name is required | Last Name is required | Email is required | Username is required | Password is required
+Ambroży, Kleks, kosmos, Kleks666, guzikszpaka, guzikszpaka, Must be a valid email
+Ambroży, Kleks, kosmos@trzecieoko.ru, Ambroży, guzikszpaka, guzikszpaka, "Username may only contain letters, numbers, and dashes"
+Ambroży, Kleks, kosmos@trzecieoko.ru,"     Ambrozy     " , guzikszpaka, guzikszpaka, "Username may only contain letters, numbers, and dashes"
+Ambroży, Kleks, kosmos@trzecieoko.ru, "Ambrozy Kleofas", guzikszpaka, guzikszpaka, "Username may only contain letters, numbers, and dashes"
+Ambroży, Kleks, kosmos@trzecieoko.ru, Ambrozy-Kleofas, guzik, guzik, Must be at least 8 characters
+Ambroży, Kleks, kosmos@trzecieoko.ru, Ambrozy-Kleofas, guzikszpaka, guzik, Password does not match
+Ambroży, Kleks, kosmos@trzecieoko.ru, Ambrozy-Kleofas, "             ", "             ", Password is required
+
+
