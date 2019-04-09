@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selenide.$;
 @Slf4j(topic = "reporting")
 public class LoginPage extends BasePage {
 
-    //TODO create enums for URL
     public static final String LOGIN_PAGE_URL = BASE_URL + "/login";
     public static final String VALID_BACKGROUND_COLOR = "#ff505f";
     public static final String DEMO_USER_NAME = "GerwazyMoczymord";

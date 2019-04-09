@@ -1,12 +1,15 @@
 package com.fitnessblender.Pages.user;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.fitnessblender.Pages.BasePage;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.support.Color;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -23,10 +26,10 @@ public class RegisterPage extends BasePage {
     private SelenideElement confirmPasswordField = $("#password_confirmation");
     private SelenideElement joinButton = $("#submitButton");
 
-    //TODO finish methods to fill and validation register form fields
-    //TODO create method to get color of validation message
+
     public Map<SelenideElement, String> fillRegisterForm(String firstName, String lastName, String email,
                                                          String userName, String password, String confirmPassword) {
+
         Map<SelenideElement, String> registerForm = new LinkedHashMap<>();
             registerForm.put(firstNameField, firstName);
             registerForm.put(lastNameField, lastName);
@@ -67,4 +70,31 @@ public class RegisterPage extends BasePage {
 
         return validationMessages;
     }
+
+
+    public String getFieldBorderColor(SelenideElement invalidFormField){
+
+        Color color = Color.fromString(
+                                invalidFormField
+                                .should(appear)
+                                .getCssValue("border-color"));
+
+        String borderColor = color.asHex();
+        log.debug(String.format("Border color of \"%s\" field is: %s", invalidFormField.attr("name"), borderColor));
+
+        return borderColor;
+    }
+
+    //TODO return Selenide elements as list of attributes 'name'
+    public String getNameOfInvalidFormFieldRedFramed(String redBorderColor){
+        List<SelenideElement> listOfFormFields = Arrays.asList(firstNameField, lastNameField, emailField,
+                userNameField, passwordField, confirmPasswordField);
+        List<SelenideElement> listOfFormFieldsWithRedFrame = listOfFormFields
+                                                            .stream()
+                                                            .filter(field -> getFieldBorderColor(field).equals(redBorderColor))
+                                                            .collect(Collectors.toList());
+        log.debug(String.format("List of Register form field with red border: %s", listOfFormFieldsWithRedFrame.toString()));
+        return listOfFormFieldsWithRedFrame.toString();
+    }
 }
+

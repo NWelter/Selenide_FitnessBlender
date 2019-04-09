@@ -1,4 +1,4 @@
-FIRST NAME, LAST NAME, E-MAIL ADDRESS, USERNAME, PASSWORD, CONFIRM PASSWORD, MESSAGE
+FIRST NAME, LAST NAME, E-MAIL ADDRESS, USERNAME, PASSWORD, CONFIRM PASSWORD, MESSAGE, LIST OF INVALID FIELDS NAMES
  " ", " " , " " , " " , " " , " ", First Name is required | Last Name is required | Email is required | Username is required | Password is required
 Ambroży, Kleks, kosmos, Kleks666, guzikszpaka, guzikszpaka, Must be a valid email
 Ambroży, Kleks, kosmos@trzecieoko.ru, Ambroży, guzikszpaka, guzikszpaka, "Username may only contain letters, numbers, and dashes"
