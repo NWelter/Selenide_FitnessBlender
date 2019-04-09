@@ -23,9 +23,9 @@ public class RegisterTest extends BaseTest {
     @CsvFileSource(resources = "/register_validation.csv", numLinesToSkip = 1)
     public void userWithInvalidDataShouldNotBeRegister(String firstName, String lastName, String email,
                                                        String username, String password, String confirmPassword,
-                                                       String validatorMessage) {
+                                                       String validatorMessage, String redFramedFieldName) {
         myFitnessDropdown.goToJoin();
-        //TODO add color assertion and prepare valid parameters values in register_validation.csv
+
         assertAll("RegisterPage options - negative test scenarios",
                 ()-> assertThat(
                     getCurrentURL())
@@ -36,12 +36,16 @@ public class RegisterTest extends BaseTest {
                         registerPage.getRegisterFormValidationMessage
                                 (firstName, lastName, email, username, password, confirmPassword))
                             .as("Proper warning message under input fields filled with invalid data is displayed")
-                            .isEqualTo(validatorMessage)
+                            .isEqualTo(validatorMessage),
 
+                ()-> assertThat(
+                        registerPage.getNameOfInvalidFormFieldRedFramed(VALID_BACKGROUND_COLOR))
+                        .as("Register form input field fill with invalid value has red border.")
+                        .contains(redFramedFieldName)
 
                 );
 
-       // registerPage.getNameOfInvalidFormFieldRedFramed(VALID_BACKGROUND_COLOR);
+
     }
 
 }

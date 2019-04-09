@@ -85,15 +85,16 @@ public class RegisterPage extends BasePage {
         return borderColor;
     }
 
-    //TODO return Selenide elements as list of attributes 'name'
+
     public String getNameOfInvalidFormFieldRedFramed(String redBorderColor){
         List<SelenideElement> listOfFormFields = Arrays.asList(firstNameField, lastNameField, emailField,
                 userNameField, passwordField, confirmPasswordField);
-        List<SelenideElement> listOfFormFieldsWithRedFrame = listOfFormFields
-                                                            .stream()
-                                                            .filter(field -> getFieldBorderColor(field).equals(redBorderColor))
-                                                            .collect(Collectors.toList());
-        log.debug(String.format("List of Register form field with red border: %s", listOfFormFieldsWithRedFrame.toString()));
+        List<String> listOfFormFieldsWithRedFrame = listOfFormFields
+                                                        .stream()
+                                                        .filter(field -> getFieldBorderColor(field).equals(redBorderColor))
+                                                        .map(SelenideElement::name)
+                                                        .collect(Collectors.toList());
+        log.debug(String.format("List of Register form fields with red border: %s", listOfFormFieldsWithRedFrame.toString()));
         return listOfFormFieldsWithRedFrame.toString();
     }
 }
