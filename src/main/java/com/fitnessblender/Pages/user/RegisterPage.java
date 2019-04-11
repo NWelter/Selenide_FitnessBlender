@@ -10,6 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -86,16 +87,24 @@ public class RegisterPage extends BasePage {
     }
 
 
-    public String getNameOfInvalidFormFieldRedFramed(String redBorderColor){
+    public String getNameOfInvalidFormField(String redBorderColor){
         List<SelenideElement> listOfFormFields = Arrays.asList(firstNameField, lastNameField, emailField,
                 userNameField, passwordField, confirmPasswordField);
         List<String> listOfFormFieldsWithRedFrame = listOfFormFields
                                                         .stream()
-                                                        .filter(field -> getFieldBorderColor(field).equals(redBorderColor))
+                                                        .filter(field -> getFieldBorderColor(field).equals(redBorderColor)
+                                                        && hasErrorIcon(field))
                                                         .map(SelenideElement::name)
                                                         .collect(Collectors.toList());
-        log.debug(String.format("List of Register form fields with red border: %s", listOfFormFieldsWithRedFrame.toString()));
+        log.debug(String.format("List of Register form fields with red border and an error icon: %s", listOfFormFieldsWithRedFrame.toString()));
         return listOfFormFieldsWithRedFrame.toString();
+    }
+
+    public boolean hasErrorIcon(SelenideElement field){
+       boolean isErrorIconDisplayed = field.parent().find("span.iconfont-error").isDisplayed();
+       log.debug(String.format("Input form field [%s] has an error icon: %s", field.attr("name"), isErrorIconDisplayed));
+
+       return isErrorIconDisplayed;
     }
 }
 

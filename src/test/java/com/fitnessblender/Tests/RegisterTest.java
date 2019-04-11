@@ -3,8 +3,6 @@ package com.fitnessblender.Tests;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import java.util.ArrayList;
-
 import static com.fitnessblender.Pages.BasePage.getCurrentURL;
 import static com.fitnessblender.Pages.user.LoginPage.VALID_BACKGROUND_COLOR;
 import static com.fitnessblender.Pages.user.RegisterPage.REGISTER_PAGE_URL;
@@ -39,8 +37,8 @@ public class RegisterTest extends BaseTest {
                             .isEqualTo(validatorMessage),
 
                 ()-> assertThat(
-                        registerPage.getNameOfInvalidFormFieldRedFramed(VALID_BACKGROUND_COLOR))
-                        .as("Register form input field fill with invalid value has red border.")
+                        registerPage.getNameOfInvalidFormField(VALID_BACKGROUND_COLOR))
+                        .as("Register form input field fill with invalid value has red border and an error icon.")
                         .contains(redFramedFieldName)
 
                 );
